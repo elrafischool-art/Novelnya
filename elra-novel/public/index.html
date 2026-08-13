@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baca Novel</title>
+<meta name="description" content="Baca novel terbaru, langsung dari mana saja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="progressBar" class="progress-bar"></div>
+
+  <header class="topbar">
+    <a href="#/" class="brand" id="brandLink">Novel<span>.</span></a>
+    <button class="btn btn-ghost" id="refreshBtn" title="Muat ulang data terbaru">⟳ Segarkan</button>
+  </header>
+
+  <main id="app">
+    <div class="state-msg">Memuat novel…</div>
+  </main>
+
+  <footer class="sitefoot">
+    <span id="lastUpdated"></span>
+    <a href="admin.html">Kelola</a>
+  </footer>
+
+  <div id="toastRoot"></div>
+
+  <script src="format.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>

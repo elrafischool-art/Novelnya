@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Kelola Novel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="gateView" class="gate">
+    <div class="gate-card">
+      <h1>Kelola Novel</h1>
+      <p>Masukkan kata sandi untuk menambah dan menerbitkan bab.</p>
+      <form id="gateForm">
+        <div class="field" style="text-align:left">
+          <label for="gatePasswordInput">Kata sandi</label>
+          <input class="input" type="password" id="gatePasswordInput" autocomplete="current-password" required>
+        </div>
+        <p class="hint" id="gateError" style="color:var(--danger);display:none">Kata sandi salah.</p>
+        <button type="submit" class="btn btn-primary">Masuk</button>
+      </form>
+      <p class="hint" style="margin-top:18px"><a href="index.html">← Kembali ke halaman baca</a></p>
+    </div>
+  </div>
+
+  <div id="adminShell" class="admin-shell" style="display:none">
+    <header class="topbar">
+      <a href="index.html" class="brand">Novel<span>.</span> <span style="font-family:var(--font-ui);font-size:13px;color:var(--muted);font-weight:400">/ kelola</span></a>
+      <button class="btn btn-ghost" id="lockBtn">Kunci</button>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <h1>Kelola Novel</h1>
+          <span class="dirty-badge" id="dirtyBadge" style="display:none"><span class="dot"></span> Ada perubahan belum disimpan</span>
+        </div>
+        <div class="actions-row">
+          <button class="btn btn-ghost" id="refreshAdminBtn">⟳ Muat Ulang</button>
+          <button class="btn btn-primary" id="saveBtn">Simpan &amp; Terbitkan</button>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2>Info Novel</h2>
+        <div class="field">
+          <label for="titleInput">Judul</label>
+          <input class="input" id="titleInput" placeholder="Judul novelmu">
+        </div>
+        <div class="field">
+          <label for="authorInput">Penulis</label>
+          <input class="input" id="authorInput" placeholder="Nama penulis">
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label for="synopsisInput">Sinopsis</label>
+          <textarea class="textarea" id="synopsisInput" style="min-height:100px" placeholder="Sinopsis singkat yang tampil di halaman depan…"></textarea>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Daftar Bab</h2>
+        <div id="chapterListEl"></div>
+        <div class="actions-row">
+          <button class="btn btn-ghost" id="addChapterBtn">+ Tambah Bab</button>
+          <button class="btn btn-ghost" id="discardBtn">Batalkan Perubahan</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay" style="display:none">
+    <div class="modal-box">
+      <h3 id="modalHeading">Bab Baru</h3>
+      <div class="field">
+        <label for="modalTitleInput">Judul Bab</label>
+        <input class="input" id="modalTitleInput" placeholder="Contoh: Bab 1 — Titik Awal">
+      </div>
+      <div class="field" style="margin-bottom:6px">
+        <label for="modalContentTextarea">Isi Bab</label>
+        <textarea class="textarea" id="modalContentTextarea" placeholder="Tulis isi bab di sini. Pisahkan paragraf dengan baris kosong, gunakan **tebal**, *miring*, dan --- untuk pembatas adegan."></textarea>
+        <p class="hint">Baris kosong = paragraf baru · **tebal** · *miring* · --- = pembatas adegan</p>
+      </div>
+      <button class="btn btn-ghost" id="previewToggleBtn" type="button">Pratinjau</button>
+      <div class="preview-box" id="previewBox" style="display:none"></div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="modalCancelBtn">Batal</button>
+        <button class="btn btn-primary" id="modalSaveBtn">Simpan Bab</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastRoot"></div>
+
+  <script src="format.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

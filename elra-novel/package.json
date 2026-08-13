@@ -1,0 +1,10 @@
+{
+  "name": "novel-elra",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Situs baca novel pribadi dengan data yang tersinkron lewat Netlify Blobs.",
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0"
+  }
+}
